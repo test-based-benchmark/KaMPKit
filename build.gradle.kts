@@ -8,11 +8,12 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.skie) apply false
     alias(libs.plugins.compose.compiler) apply false
+    id("org.jetbrains.kotlinx.kover") version "0.8.3"
 }
 
 subprojects {
     apply(plugin = rootProject.libs.plugins.ktlint.get().pluginId)
-
+    apply(plugin = "org.jetbrains.kotlinx.kover")
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         version.set("1.1.1")
         enableExperimentalRules.set(true)
